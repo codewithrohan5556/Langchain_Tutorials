@@ -1,7 +1,7 @@
 from langchain_classic.text_splitter import RecursiveCharacterTextSplitter, Language
 
 text = """
-
+Insert Your Text to split
 """
 
 
