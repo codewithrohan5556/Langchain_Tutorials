@@ -1,0 +1,20 @@
+from langchain_classic.text_splitter import CharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+
+# text = """When I first started connecting language models, tools, orchestration, and memory together into what we now call an agent, I was surprised by how capable this design pattern was, and just how much confusion there was about this topic. During my time building agents and sharing my findings on incident investigation, threat hunting, vulnerability detection, and more, I found that this latest design pattern enabled us to solve whole new classes of problems, but also came with many practical hurdles to making them reliable for real-world applications. Engineers, scientists, product managers, and leadership all wanted to know more. “How do I get my agent to work?” “I can get my agent to work some of the time, but how do I get it to work most or all of the time?” “How do I choose a model for my use case?” “How do I design good tools for my agent?” “What kind of memory do I need?” “Should I use RAG?” “Should I build a single-agent or multiagent system?” “What architecture should I use?” “Do I need to fine-tune?” “How do I enable agents to learn from experience and improve over time?” While there are many blog posts and research papers that focus on specific aspects of the topic of designing agent systems, I realized there were a lack of accessible, holistic, trustworthy guides for this. I couldn’t find the book that I wanted to share with my colleagues, so I set out to write it. Through in-depth discussions, I’ve helped teams navigate the complexities of AI agents, considering their unique goals, constraints, and environments. AI agent systems are intricate, blending autonomy, decision making, and interaction in ways that traditional software doesn’t. They’re data-driven, adaptive, and involve multiple components like perception, reasoning, action, and learning, all while interfacing with users, tools, and other agents. Complicating matters, the foundation models that power these agents are probabilistic and stochastic by nature, making evaluation and testing more challenging. This book takes a comprehensive approach to building applications with AI agents. It covers the entire lifecycle, from conceptualization to deployment and maintenance illustrated with real-world case studies, supported by references, and reviewed by practitioners in the field. Sections on advanced topics—like agent architectures, tool integration, memory systems, orchestration, multiagent coordination, measurement, monitoring, security, and ethical considerations—are further refined by expert input. Writing this book has been a journey of discovery for me as well. The initial drafts sparked conversations that challenged my views and introduced new ideas. I hope this process continues as you read it, bringing your own insights. Feel free to share any feedback you might have for this book via Twitter (X), LinkedIn, my personal website, or any other channels that you can find."""
+
+
+loader = PyPDFLoader('/home/ai-with-rohan/Desktop/langchain/Lec10/directory/AI Agents.pdf')
+
+docs = loader.load()
+
+splitter = CharacterTextSplitter(
+    chunk_size = 100,
+    chunk_overlap = 0,
+)
+
+result = splitter.split_text(docs)
+print(result[0])
+
+# result = splitter.split_text(text)
+# print(result)
